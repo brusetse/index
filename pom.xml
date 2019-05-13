@@ -14,10 +14,13 @@
     <modules>
         <module>basic</module>
         <module>leetcode</module>
+        <module>middleware</module>
+        <module>spring</module>
     </modules>
 
     <properties>
         <jdk.version>1.8</jdk.version>
+        <spring-boot.version>2.1.4.RELEASE</spring-boot.version>
     </properties>
 
     <build>

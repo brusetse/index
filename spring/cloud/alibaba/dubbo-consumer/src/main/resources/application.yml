@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: dubbo-consumer
+  main:
+    allow-bean-definition-overriding: true
+
+server:
+  port: 9001
+
+dubbo:
+  cloud:
+    subscribed-services: dubbo-provider
+  registry:
+    address: spring-cloud://localhost
+
+eureka:
+  client:
+    enabled: true
+    service-url:
+      defaultZone: http://127.0.0.1:8000/eureka/
