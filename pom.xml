@@ -11,6 +11,11 @@
     <packaging>pom</packaging>
     <name>index</name>
 
+    <modules>
+        <module>basic</module>
+        <module>leetcode</module>
+    </modules>
+
     <properties>
         <jdk.version>1.8</jdk.version>
     </properties>
