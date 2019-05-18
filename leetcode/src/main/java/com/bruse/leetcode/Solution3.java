@@ -23,6 +23,32 @@ public class Solution3 {
      *      请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
      */
     public int lengthOfLongestSubstring(String s) {
+
+        // 超出时间限制
+        // int max = 0;
+        // for (int i = 0; i < s.length(); i++) {
+        //     for (int j = i + 1; j < s.length() + 1; j++) {
+        //         String target = s.substring(i, j);
+        //         int length = target.length();
+        //         String[] split = target.split("");
+        //         boolean flag = false;
+        //         for (String s1 : split) {
+        //             String replace = target.replace(s1, "");
+        //             if (length - replace.length() != 1) {
+        //                 flag = true;
+        //                 break;
+        //             }
+        //         }
+        //         if (flag) {
+        //             continue;
+        //         }
+        //         if (length > max) {
+        //             max = length;
+        //         }
+        //     }
+        // }
+        // return max;
+
         // int start;
         // int end;
         int maxLength = 0;
