@@ -1,0 +1,4 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://phoenix:123456@39.108.174.27:27017/admin

@@ -18,6 +18,8 @@
         <module>elasticsearch-demo</module>
         <module>oauth-demo</module>
         <module>mybatis-demo</module>
+        <module>redis-demo</module>
+        <module>mongodb-demo</module>
     </modules>
 
     <dependencyManagement>
