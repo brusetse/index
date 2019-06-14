@@ -1,3 +1,5 @@
+server:
+  port: 9081
 spring:
   activemq:
     broker-url: tcp://192.168.1.188:61616
