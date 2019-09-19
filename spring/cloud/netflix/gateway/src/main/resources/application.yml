@@ -1,0 +1,62 @@
+server:
+  port: 8080
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: brusetse_route
+          uri: https://brusetse.github.io
+          predicates:
+            - Path=/brusetse
+        # 通过时间匹配
+        - id: time_route
+          uri: http://ityouknow.com
+          predicates:
+            - After=2018-01-20T06:06:06+08:00[Asia/Shanghai]
+        # 通过 Cookie 匹配
+        - id: cookie_route
+          uri: http://ityouknow.com
+          predicates:
+            - Cookie=ityouknow, kee.e
+        # 通过 Header 属性匹配
+        - id: header_route
+          uri: http://ityouknow.com
+          predicates:
+            - Header=X-Request-Id, \d+
+        # 通过 Host 匹配
+        - id: host_route
+          uri: http://ityouknow.com
+          predicates:
+            - Host=**.ityouknow.com
+        # 通过请求方式匹配
+        - id: method_route
+          uri: http://ityouknow.com
+          predicates:
+            - Method=GET
+        # 通过请求路径匹配
+        - id: host_route2
+          uri: http://ityouknow.com
+          predicates:
+            - Path=/foo/{segment}
+        # 通过请求参数匹配
+        - id: query_route
+          uri: http://ityouknow.com
+          predicates:
+            - Query=smile
+        # 通过请求 ip 地址进行匹配
+        - id: remoteaddr_route
+          uri: http://ityouknow.com
+          predicates:
+            - RemoteAddr=192.168.1.1/24
+        # 组合使用
+        - id: host_foo_path_headers_to_httpbin
+          uri: http://ityouknow.com
+          predicates:
+            - Host=**.foo.org
+            - Path=/headers
+            - Method=GET
+            - Header=X-Request-Id, \d+
+            - Query=foo, ba.
+            - Query=baz
+            - Cookie=chocolate, ch.p
+            - After=2018-01-20T06:06:06+08:00[Asia/Shanghai]
