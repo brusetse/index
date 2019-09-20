@@ -16,6 +16,7 @@
         <module>leetcode</module>
         <module>middleware</module>
         <module>spring</module>
+        <module>dubbo</module>
     </modules>
 
     <properties>
