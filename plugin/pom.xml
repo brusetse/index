@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>log-demo</module>
+        <module>rxjava-demo</module>
     </modules>
 
 
