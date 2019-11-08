@@ -11,7 +11,7 @@
 3.独享锁 / 共享锁
 
     独享锁 ReeReentrantLock synchronized
-    共享锁 ReentrantReadWriteLock
+    共享锁 ReentrantReadWriteLock 读锁
 
 4.互斥锁 / 读写锁
 
