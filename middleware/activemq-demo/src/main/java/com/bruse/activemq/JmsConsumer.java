@@ -19,4 +19,13 @@ public class JmsConsumer {
     public void receiveMessage(String message) {
         System.out.println(message);
     }
+
+    /**
+     * 订阅消息
+     * @param message 消息
+     */
+    @JmsListener(destination = "springboot.topic.test", containerFactory = "topicListenerContainerFactory")
+    public void receiveTopic(String message) {
+        System.out.println(message);
+    }
 }

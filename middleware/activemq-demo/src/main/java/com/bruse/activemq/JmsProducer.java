@@ -5,6 +5,7 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.jms.Destination;
+import javax.jms.Topic;
 
 /**
  * 消息生产者
@@ -24,5 +25,14 @@ public class JmsProducer {
      */
     public void sendMessage(Destination destination, final String message) {
         jmsTemplate.convertAndSend(destination, message);
+    }
+
+    /**
+     * 发送消息
+     * @param topic 订阅
+     * @param message 消息
+     */
+    public void sendTopic(Topic topic, final String message) {
+        jmsTemplate.convertAndSend(topic, message);
     }
 }
