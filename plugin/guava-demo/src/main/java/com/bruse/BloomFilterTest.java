@@ -21,5 +21,14 @@ public class BloomFilterTest {
             }
         }
         System.out.println("escape count: " + count);
+
+        int count2 = 0;
+        for (int i = total; i < total + 10000; i++) {
+            if (bf.mightContain(i)) {
+                System.out.println(i + " wrong...");
+                count2++;
+            }
+        }
+        System.out.println("wrong count: " + count2);
     }
 }
