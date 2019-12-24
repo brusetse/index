@@ -11,10 +11,8 @@ public class ByteArrayInOutputStream {
         test1();
     }
 
-    public static void test1() {
-        try {
-            InputStream input = new FileInputStream("D:\\1.txt");
-            OutputStream output = new ByteArrayOutputStream();
+    private static void test1() {
+        try (InputStream input = new FileInputStream("D:\\1.txt"); OutputStream output = new ByteArrayOutputStream()) {
             byte[] buf = new byte[1024];
             int bytesRead = 0;
             while ((bytesRead = input.read(buf)) != -1) {

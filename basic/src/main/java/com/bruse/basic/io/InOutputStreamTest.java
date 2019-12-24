@@ -14,9 +14,8 @@ public class InOutputStreamTest {
         test3();
     }
 
-    public static void test1() {
-        try {
-            OutputStream output = new FileOutputStream("D:\\1.txt");
+    private static void test1() {
+        try (OutputStream output = new FileOutputStream("D:\\1.txt")) {
             String data = "hello world!";
             byte[] bytes = data.getBytes(Charset.forName("UTF-8"));
             output.write(bytes);
@@ -25,9 +24,8 @@ public class InOutputStreamTest {
         }
     }
 
-    public static void test2() {
-        try {
-            InputStream input = new FileInputStream("D:\\1.txt");
+    private static void test2() {
+        try (InputStream input = new FileInputStream("D:\\1.txt")) {
             byte[] buf = new byte[1024];
             int bytesRead = input.read(buf);
             String data = new String(buf, 0, bytesRead, "UTF-8");
@@ -37,9 +35,8 @@ public class InOutputStreamTest {
         }
     }
 
-    public static void test3() {
-        try {
-            InputStream input = new FileInputStream("D:\\1.txt");
+    private static void test3() {
+        try (InputStream input = new FileInputStream("D:\\1.txt")) {
             byte[] buf = new byte[1024];
             int b = -1;
             int byteRead = 0;
