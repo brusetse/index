@@ -1,5 +1,8 @@
 package com.bruse.basic.thread;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class CounterThread extends Thread {
     Counter counter;
 
@@ -90,5 +93,23 @@ class StaticCounter {
         synchronized (StaticCounter.class) {
             return count;
         }
+    }
+}
+
+class LockCounter {
+    private final static Lock lock = new ReentrantLock();
+    private static int count = 0;
+
+    public static void incr() {
+        lock.lock();
+        try {
+            count++;
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public static int getCount() {
+        return count;
     }
 }
