@@ -45,6 +45,7 @@ public class ReflectDemo {
         Class<?> cls = Integer.class;
         try {
             Method method = cls.getMethod("parseInt", new Class[]{String.class});
+            // method为静态方法，obj可忽略为null
             System.out.println(method.invoke(null, "123"));
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
