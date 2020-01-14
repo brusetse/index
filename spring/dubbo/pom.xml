@@ -15,6 +15,7 @@
         <module>dubbo-rpc</module>
         <module>dubbo-service</module>
         <module>dubbo-boot</module>
+        <module>dubbo-source</module>
     </modules>
 
     <properties>
