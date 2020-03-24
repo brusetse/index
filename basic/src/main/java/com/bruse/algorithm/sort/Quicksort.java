@@ -1,4 +1,4 @@
-package com.bruse.basic.algorithm;
+package com.bruse.algorithm.sort;
 
 import java.util.ArrayList;
 import java.util.List;

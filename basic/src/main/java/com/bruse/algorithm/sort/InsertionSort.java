@@ -1,4 +1,4 @@
-package com.bruse.basic.algorithm;
+package com.bruse.algorithm.sort;
 
 /**
  * 直接插入排序
