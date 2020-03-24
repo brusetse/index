@@ -3,6 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bruse.mybatis.repository.UserRepository">
+    <!-- 开启基于redis的二级缓存 -->
+    <cache type="com.bruse.mybatis.RedisCache"/>
 
     <resultMap id="BaseResultMap" type="com.bruse.mybatis.entity.User">
         <result column="用户名" property="userName"/>
@@ -13,8 +15,12 @@
         select user_name as '用户名', account as '账号' from platform.sys_user limit 0,20;
     </select>
 
-    <select id="selectUserMap" resultType="java.util.TreeMap" parameterType="Object">
+    <select id="selectUserMap" resultType="Map" parameterType="Object">
         select user_name as '用户名', account as '账号' from platform.sys_user limit 0,20;
     </select>
 
+    <!--在更新时flushCache调用clear方法能够自动失效缓存-->
+    <update id="updateUser" parameterType="Object" flushCache="true">
+        update platform.sys_user set user_name = #{userName} where id = #{id};
+    </update>
 </mapper>
