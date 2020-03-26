@@ -22,6 +22,7 @@
         <module>mongodb-demo</module>
         <module>websocket-demo</module>
         <module>activiti-demo</module>
+        <module>zookeeper-demo</module>
     </modules>
 
     <dependencyManagement>
