@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>api-demo</module>
+        <module>basis</module>
     </modules>
 
     <dependencyManagement>
