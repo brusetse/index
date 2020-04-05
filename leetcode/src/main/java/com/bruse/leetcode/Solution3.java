@@ -49,19 +49,34 @@ public class Solution3 {
         // }
         // return max;
 
-        // int start;
-        // int end;
+        if (s.length() <= 1) {
+            return s.length();
+        }
         int maxLength = 0;
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            int start = s.indexOf(c);
-            int end = s.lastIndexOf(s);
-            if (start != end) {
-                int currentLength = end - start;
-
+        int start = 0;
+        int end = 1;
+        while (true) {
+            String subStr = s.substring(start, end);
+            char nextChar = s.charAt(end);
+            int index = subStr.indexOf(nextChar);
+            if (index == -1) {
+                int length = subStr.length() + 1;
+                if (length > maxLength) {
+                    maxLength = length;
+                }
+            } else {
+                int length = subStr.length();
+                if (length > maxLength) {
+                    maxLength = length;
+                }
+                start = start + index + 1;
+            }
+            end++;
+            if (end == s.length()) {
+                break;
             }
         }
-        return 0;
+        return maxLength;
     }
 
     public static void main(String[] args) {

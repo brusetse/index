@@ -16,7 +16,70 @@ public class Solution5 {
      * 输出: "bb"
      */
     public String longestPalindrome(String s) {
-        return null;
+        if (s.length() <= 1) {
+            return s;
+        }
+
+        int maxLength = 0;
+        String result = "";
+        int length = s.length();
+
+        for (int i = 0; i < length; i++) {
+            int len = 1;
+            int left = i - 1;
+            int right = i + 1;
+
+            while (left >= 0 && s.charAt(left) == s.charAt(i)) {
+                len++;
+                left--;
+            }
+
+            while (left >= 0 && right < length && s.charAt(right) == s.charAt(i)) {
+                len++;
+                right++;
+            }
+
+            while (left >= 0 && right < length && s.charAt(right) == s.charAt(left)) {
+                len = len + 2;
+                left--;
+                right++;
+            }
+
+            if (maxLength < len) {
+                result = s.substring(left + 1, right);
+                maxLength = len;
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * 动态规划
+     */
+    public String longestPalindrome2(String s) {
+        if (s.length() <= 1) {
+            return s;
+        }
+
+        int maxLength = 0;
+        String result = "";
+        int length = s.length();
+        boolean[][] dp = new boolean[length][length];
+
+        for (int r = 1; r < length; r++) {
+            for (int l = 0; l <= r; l++) {
+                if (s.charAt(l) == s.charAt(r) && (r - l <= 2 || dp[l + 1][r - 1])) {
+                    dp[l][r] = true;
+                    if (r - l + 1 > maxLength) {
+                        maxLength = r - l + 1;
+                        result = s.substring(l, r + 1);
+                    }
+                }
+            }
+        }
+
+        return result;
     }
 
     public static void main(String[] args) {
